@@ -1,0 +1,4 @@
+.env
+.vscode
+docker/mysql/data
+docker/phpmyadmin
