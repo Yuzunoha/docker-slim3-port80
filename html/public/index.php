@@ -4,6 +4,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require __DIR__ . '/../vendor/autoload.php';
+require './RandomResponse.php';
 
 function pdo()
 {
@@ -42,5 +43,7 @@ $app->get('/random-prefecture', function (Request $request, Response $response) 
   $data = ['prefecture' => $randomPrefecture];
   return $response->withJson($data, 200, JSON_UNESCAPED_UNICODE);
 });
+
+$app->get('/random-response', $randomResponse);
 
 $app->run();
