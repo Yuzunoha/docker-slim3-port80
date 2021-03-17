@@ -25,6 +25,11 @@ $app->add(function ($req, $res, $next) {
     ->withHeader('Access-Control-Allow-Methods', '*');
 });
 
+$app->get('/', function (Request $request, Response $response) {
+  $data = getallheaders();
+  return $response->withJson($data, 200, JSON_UNESCAPED_UNICODE);
+});
+
 $app->get('/random-prefecture', function (Request $request, Response $response) {
   $sql = 'select * from kvs1';
   $sth = pdo()->prepare($sql);
